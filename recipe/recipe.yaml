@@ -10,7 +10,7 @@ source:
     sha256: 567dad078f8a66d6d706ac1876b5251b688109d16974909d89ce2056d6e9f258
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -60,7 +60,7 @@ about:
   license: GPL-2.0-only
   license_file:
     - COPYING
-  summary:  Import OpenStreetMap data into a PostgreSQL/PostGIS database
+  summary: Import OpenStreetMap data into a PostgreSQL/PostGIS database
   description: osm2pgsql is a tool for loading OpenStreetMap data into a PostgreSQL / PostGIS database suitable for applications like rendering into a map, geocoding with Nominatim, or general analysis.
   documentation: https://osm2pgsql.org
   repository: https://github.com/osm2pgsql-dev/osm2pgsql
