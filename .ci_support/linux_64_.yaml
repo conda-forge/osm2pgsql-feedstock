@@ -17,7 +17,7 @@ docker_image:
 expat:
 - '2'
 libboost_devel:
-- '1.88'
+- '1.90'
 lua:
 - '5'
 postgresql:
