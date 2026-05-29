@@ -23,7 +23,7 @@ lua:
 postgresql:
 - '18'
 proj:
-- '9.7'
+- '9.8'
 target_platform:
 - linux-64
 zlib:
