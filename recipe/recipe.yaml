@@ -1,5 +1,5 @@
 context:
-  version: "2.2.0"
+  version: "2.3.0"
 
 package:
   name: osm2pgsql
@@ -7,10 +7,10 @@ package:
 
 source:
   - url: https://github.com/osm2pgsql-dev/osm2pgsql/archive/refs/tags/${{ version }}.tar.gz
-    sha256: 567dad078f8a66d6d706ac1876b5251b688109d16974909d89ce2056d6e9f258
+    sha256: 334c19fd58140e48216ec842fd63d7a978c7a2aea034858c2a62f32ad9e94c06
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
