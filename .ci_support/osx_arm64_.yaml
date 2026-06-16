@@ -23,7 +23,7 @@ libboost_devel:
 lua:
 - '5'
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 postgresql:
 - '18'
 proj:
@@ -31,6 +31,6 @@ proj:
 python_min:
 - '3.10'
 target_platform:
-- osx-64
+- osx-arm64
 zlib:
 - '1'
