@@ -33,4 +33,27 @@ cmake --build ${BUILD_DIR} --target all --parallel ${CPU_COUNT}
 
 cmake --install ${BUILD_DIR}
 
-# Note: osm2pgsql-replication script is automatically installed by CMake to ${PREFIX}/bin
+# Replace the raw script installed by CMake with a proper Python entry point.
+# The CMake-installed script has a #!/usr/bin/env python3 shebang that resolves
+# the interpreter from the calling shell's PATH at runtime, which breaks when
+# another conda/Python environment is active. A pip-generated entry point uses
+# sys.executable (the prefix-absolute interpreter path) and is correctly
+# relocated by conda when the package is installed.
+
+# Remove the raw script; we will replace it via pip.
+rm "${PREFIX}/bin/osm2pgsql-replication"
+
+# Stage a minimal pip-installable package that wraps the script as a module.
+STAGING_DIR="$(mktemp -d)"
+trap 'rm -rf "${STAGING_DIR}"' EXIT
+
+# The script is a self-contained module; copy it under a package name that
+# won't collide with anything on PyPI or in the conda environment.
+mkdir "${STAGING_DIR}/osm2pgsql_replication"
+cp "${SRC_DIR}/scripts/osm2pgsql-replication" \
+   "${STAGING_DIR}/osm2pgsql_replication/__init__.py"
+
+cp "${RECIPE_DIR}/pyproject.toml" "${STAGING_DIR}/pyproject.toml"
+
+${PYTHON} -m pip install "${STAGING_DIR}" \
+    --no-deps --no-build-isolation -vv

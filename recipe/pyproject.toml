@@ -1,0 +1,11 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "osm2pgsql-replication"
+version = "2.3.0"
+requires-python = ">=3.10"
+
+[project.scripts]
+osm2pgsql-replication = "osm2pgsql_replication:main"
