@@ -1,0 +1,30 @@
+bzip2:
+- '1'
+c_stdlib:
+- vs
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- vs2022
+expat:
+- '2'
+libboost_devel:
+- '1.90'
+lua:
+- '5'
+pin_run_as_build:
+  python:
+    min_pin: x.x
+    max_pin: x.x
+postgresql:
+- '18'
+proj:
+- '9.8'
+python:
+- 3.12.* *_cpython
+target_platform:
+- win-64
+zlib:
+- '1'
