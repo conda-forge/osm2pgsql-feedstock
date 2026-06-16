@@ -14,16 +14,10 @@ libboost_devel:
 - '1.90'
 lua:
 - '5'
-pin_run_as_build:
-  python:
-    min_pin: x.x
-    max_pin: x.x
 postgresql:
 - '18'
 proj:
 - '9.8'
-python:
-- 3.13.* *_cp313
 target_platform:
 - win-64
 zlib:

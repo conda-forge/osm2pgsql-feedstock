@@ -3,6 +3,10 @@ About osm2pgsql-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/osm2pgsql-feedstock/blob/main/LICENSE.txt)
 
+
+About osm2pgsql
+---------------
+
 Home: https://osm2pgsql.org/
 
 Package license: GPL-2.0-only
@@ -14,6 +18,21 @@ Development: https://github.com/osm2pgsql-dev/osm2pgsql
 Documentation: https://osm2pgsql.org/
 
 osm2pgsql is a tool for loading OpenStreetMap data into a PostgreSQL / PostGIS database suitable for applications like rendering into a map, geocoding with Nominatim, or general analysis.
+
+About osm2pgsql-replication
+---------------------------
+
+Home: https://osm2pgsql.org/
+
+Package license: GPL-2.0-only
+
+Summary: Replication tool for osm2pgsql
+
+Development: https://github.com/osm2pgsql-dev/osm2pgsql
+
+Documentation: https://osm2pgsql.org/doc/manual.html#keeping-the-database-up-to-date-with-osm2pgsql-replication
+
+osm2pgsql-replication keeps a database loaded with osm2pgsql up to date with the latest changes from OpenStreetMap.
 
 Current build status
 ====================
@@ -40,59 +59,17 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>osx_64_python3.10.____cpython</td>
+              <td>osx_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=28399&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/osm2pgsql-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/osm2pgsql-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_python3.11.____cpython</td>
+              <td>win_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=28399&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/osm2pgsql-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_python3.12.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=28399&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/osm2pgsql-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.12.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_python3.13.____cp313</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=28399&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/osm2pgsql-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.13.____cp313" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_python3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=28399&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/osm2pgsql-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=28399&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/osm2pgsql-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_python3.12.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=28399&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/osm2pgsql-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.12.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_python3.13.____cp313</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=28399&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/osm2pgsql-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.13.____cp313" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/osm2pgsql-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -109,6 +86,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-osm2pgsql-green.svg)](https://anaconda.org/conda-forge/osm2pgsql) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/osm2pgsql.svg)](https://anaconda.org/conda-forge/osm2pgsql) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/osm2pgsql.svg)](https://anaconda.org/conda-forge/osm2pgsql) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/osm2pgsql.svg)](https://anaconda.org/conda-forge/osm2pgsql) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-osm2pgsql--replication-green.svg)](https://anaconda.org/conda-forge/osm2pgsql-replication) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/osm2pgsql-replication.svg)](https://anaconda.org/conda-forge/osm2pgsql-replication) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/osm2pgsql-replication.svg)](https://anaconda.org/conda-forge/osm2pgsql-replication) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/osm2pgsql-replication.svg)](https://anaconda.org/conda-forge/osm2pgsql-replication) |
 
 Installing osm2pgsql
 ====================
@@ -120,16 +98,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `osm2pgsql` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `osm2pgsql, osm2pgsql-replication` can be installed with `conda`:
 
 ```
-conda install osm2pgsql
+conda install osm2pgsql osm2pgsql-replication
 ```
 
 or with `mamba`:
 
 ```
-mamba install osm2pgsql
+mamba install osm2pgsql osm2pgsql-replication
 ```
 
 It is possible to list all of the versions of `osm2pgsql` available on your platform with `conda`:
