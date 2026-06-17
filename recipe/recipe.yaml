@@ -12,16 +12,6 @@ source:
 build:
   number: 1
 
-about:
-  homepage: https://osm2pgsql.org
-  license: GPL-2.0-only
-  license_file:
-    - COPYING
-  summary: Import OpenStreetMap data into a PostgreSQL/PostGIS database
-  description: osm2pgsql is a tool for loading OpenStreetMap data into a PostgreSQL / PostGIS database suitable for applications like rendering into a map, geocoding with Nominatim, or general analysis.
-  documentation: https://osm2pgsql.org
-  repository: https://github.com/osm2pgsql-dev/osm2pgsql
-
 outputs:
   - package:
       name: osm2pgsql
@@ -109,6 +99,16 @@ outputs:
       description: osm2pgsql-replication keeps a database loaded with osm2pgsql up to date with the latest changes from OpenStreetMap.
       documentation: https://osm2pgsql.org/doc/manual.html#keeping-the-database-up-to-date-with-osm2pgsql-replication
       repository: https://github.com/osm2pgsql-dev/osm2pgsql
+
+about:
+  homepage: https://osm2pgsql.org
+  license: GPL-2.0-only
+  license_file:
+    - COPYING
+  summary: Import OpenStreetMap data into a PostgreSQL/PostGIS database
+  description: osm2pgsql is a tool for loading OpenStreetMap data into a PostgreSQL / PostGIS database suitable for applications like rendering into a map, geocoding with Nominatim, or general analysis.
+  documentation: https://osm2pgsql.org
+  repository: https://github.com/osm2pgsql-dev/osm2pgsql
 
 extra:
   recipe-maintainers:
