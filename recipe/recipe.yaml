@@ -73,6 +73,8 @@ outputs:
     build:
       noarch: python
       script: build-replication.sh
+      skip:
+        - win
     requirements:
       host:
         - python ${{ python_min }}.*
