@@ -21,7 +21,7 @@ outputs:
       script:
         - if: unix
           then: build.sh
-          else: buld.bat
+          else: build.bat
     requirements:
       build:
         - ${{ compiler('cxx') }}
