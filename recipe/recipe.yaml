@@ -18,6 +18,10 @@ outputs:
       version: ${{ version }}
     build:
       number: 1
+      script:
+        - if: unix
+          then: build.sh
+          else: buld.bat
     requirements:
       build:
         - ${{ compiler('cxx') }}
