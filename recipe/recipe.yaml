@@ -75,9 +75,10 @@ outputs:
       version: ${{ version }}
     build:
       noarch: python
-      script: build-replication.sh
-      skip:
-        - win
+      script:
+        - if: unix
+          then: build-replication.sh
+          else: build-replication.bat
     requirements:
       host:
         - python ${{ python_min }}.*
