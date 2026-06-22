@@ -97,7 +97,6 @@ outputs:
         script:
           - if: unix
             then: osm2pgsql-replication --help 2>&1 | grep -qi "usage"
-            else: osm2pgsql-replication --help
     about:
       homepage: https://osm2pgsql.org
       license: GPL-2.0-only
