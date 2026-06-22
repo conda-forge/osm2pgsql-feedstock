@@ -1,7 +1,7 @@
 context:
   version: "2.3.0"
 
-package:
+recipe:
   name: osm2pgsql
   version: ${{ version }}
 
@@ -10,50 +10,102 @@ source:
     sha256: 334c19fd58140e48216ec842fd63d7a978c7a2aea034858c2a62f32ad9e94c06
 
 build:
-  number: 0
+  number: 1
 
-requirements:
-  build:
-    - ${{ compiler('cxx') }}
-    - ${{ stdlib('c') }}
-    - cmake
-    - ninja
-    - pkg-config
-
-  host:
-    - expat
-    - proj
-    - bzip2
-    - zlib
-    - postgresql
-    - lua
-    - protozero
-    - libosmium
-    - cli11
-    - fmt <12
-    - nlohmann_json
-    - libboost-devel
-
-  run:
-    - lua
-    - pyosmium
-    - psycopg
-
-tests:
-  - files:
-      recipe:
-        - test.sh
-        - liechtenstein-2013-08-03.osm.pbf
-    requirements:
-      run:
-        - postgresql
+outputs:
+  - package:
+      name: osm2pgsql
+      version: ${{ version }}
+    build:
+      number: 1
+      script:
         - if: unix
-          then: postgis
-    script:
-      - osm2pgsql --version
-      - osm2pgsql --help
-      - if: unix
-        then: bash test.sh
+          then: build.sh
+          else: build.bat
+    requirements:
+      build:
+        - ${{ compiler('cxx') }}
+        - ${{ stdlib('c') }}
+        - cmake
+        - ninja
+        - pkg-config
+      host:
+        - expat
+        - proj
+        - bzip2
+        - zlib
+        - postgresql
+        - lua
+        - protozero
+        - libosmium
+        - cli11
+        - fmt <12
+        - nlohmann_json
+        - libboost-devel
+      run:
+        - lua
+        - osm2pgsql-replication
+    tests:
+      - files:
+          recipe:
+            - test.sh
+            - liechtenstein-2013-08-03.osm.pbf
+        requirements:
+          run:
+            - postgresql
+            - if: unix
+              then: postgis
+        script:
+          - osm2pgsql --version
+          - osm2pgsql --help
+          - if: unix
+            then: bash test.sh
+    about:
+      homepage: https://osm2pgsql.org
+      license: GPL-2.0-only
+      license_file:
+        - COPYING
+      summary: Import OpenStreetMap data into a PostgreSQL/PostGIS database
+      description: osm2pgsql is a tool for loading OpenStreetMap data into a PostgreSQL / PostGIS database suitable for applications like rendering into a map, geocoding with Nominatim, or general analysis.
+      documentation: https://osm2pgsql.org
+      repository: https://github.com/osm2pgsql-dev/osm2pgsql
+
+  - package:
+      name: osm2pgsql-replication
+      version: ${{ version }}
+    build:
+      noarch: python
+      script:
+        - if: unix
+          then: build-replication.sh
+          else: build-replication.bat
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+        - pip
+        - hatchling
+      run:
+        - python >=${{ python_min }}
+        - pyosmium
+        - psycopg
+    tests:
+      - python:
+          python_version: ${{ python_min }}
+      - requirements:
+          run:
+            - python ${{ python_min }}.*
+        script:
+          - if: unix
+            then: osm2pgsql-replication --help 2>&1 | grep -qi "usage"
+    about:
+      homepage: https://osm2pgsql.org
+      license: GPL-2.0-only
+      license_file:
+        - COPYING
+      summary: Replication tool for osm2pgsql
+      description: osm2pgsql-replication keeps a database loaded with osm2pgsql up to date with the latest changes from OpenStreetMap.
+      documentation: https://osm2pgsql.org/doc/manual.html#keeping-the-database-up-to-date-with-osm2pgsql-replication
+      repository: https://github.com/osm2pgsql-dev/osm2pgsql
 
 about:
   homepage: https://osm2pgsql.org

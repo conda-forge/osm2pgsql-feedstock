@@ -26,3 +26,9 @@ if errorlevel 1 exit /b 1
 cmake --install "%BUILD_DIR%"
 
 if errorlevel 1 exit /b 1
+
+:: Remove the raw script installed by CMake; it is packaged separately by the
+:: osm2pgsql-replication output as a proper noarch Python entry point.
+del "%LIBRARY_PREFIX%\bin\osm2pgsql-replication"
+
+if errorlevel 1 exit /b 1

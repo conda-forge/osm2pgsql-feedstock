@@ -33,4 +33,6 @@ cmake --build ${BUILD_DIR} --target all --parallel ${CPU_COUNT}
 
 cmake --install ${BUILD_DIR}
 
-# Note: osm2pgsql-replication script is automatically installed by CMake to ${PREFIX}/bin
+# Remove the raw script installed by CMake; it is packaged separately by the
+# osm2pgsql-replication output as a proper noarch Python entry point.
+rm "${PREFIX}/bin/osm2pgsql-replication"
