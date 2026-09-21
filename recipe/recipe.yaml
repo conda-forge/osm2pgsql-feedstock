@@ -10,14 +10,14 @@ source:
     sha256: e90461bd78787fd5cf82f73ac4bc0cfccbc4f498f35dce59eb4d168a380d6ac0
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - package:
       name: osm2pgsql
       version: ${{ version }}
     build:
-      number: 0
+      number: 1
       script:
         - if: unix
           then: build.sh
@@ -90,7 +90,9 @@ outputs:
         - psycopg
     tests:
       - python:
-          python_version: ${{ python_min }}
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
       - requirements:
           run:
             - python ${{ python_min }}.*

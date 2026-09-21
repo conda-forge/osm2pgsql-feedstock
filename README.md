@@ -72,13 +72,6 @@ Current build status
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/osm2pgsql-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
                 </a>
               </td>
-            </tr><tr>
-              <td>win_64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=28399&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/osm2pgsql-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
-                </a>
-              </td>
             </tr>
           </tbody>
         </table>
@@ -105,31 +98,73 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `osm2pgsql, osm2pgsql-replication` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install osm2pgsql osm2pgsql-replication
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install osm2pgsql osm2pgsql-replication
 ```
 
-It is possible to list all of the versions of `osm2pgsql` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add osm2pgsql osm2pgsql-replication
+# for installing globally
+pixi global install osm2pgsql osm2pgsql-replication
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `osm2pgsql` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search osm2pgsql --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search osm2pgsql --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search osm2pgsql --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -141,6 +176,8 @@ mamba repoquery whoneeds osm2pgsql --channel conda-forge
 # List dependencies of `osm2pgsql`:
 mamba repoquery depends osm2pgsql --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
